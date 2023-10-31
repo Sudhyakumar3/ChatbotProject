@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAI Chat</title>
+</head>
+<style>
+    /* Add CSS styles for chat messages */
+    .message {
+      margin: 10px;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    .user-message {
+      background-color: grey;
+      color: white;
+      text-align: right;
+      font-size: 20px;
+    }
+    .chatgpt-message {
+      background-color: #e0e0e0;
+      color: black;
+      text-align: left;
+      font-size: 20px;
+    }
+
+    body {
+    margin: 0;
+    padding: 0;
+    background-image: url('restaurantKitchen.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Keeps the background fixed when scrolling */
+    opacity: 0.90; /* Adjust the opacity as needed */
+}
+
+.chat-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+
+    </style>
+<body>
+    <form id="chatForm">
+        <div class = "chat-container" style = "overflow-y:scroll" >
+        <div id = "chat"></div>
+        <div class="input-container">
+            <input 
+            type="text" 
+            id="user-message" 
+            name="userInput" 
+            placeholder="Type a message here..."
+            />
+            <button id="send" type="submit">Send</button>
+        </div>
+        </div>
+        <!--</div>
+        <label for="userInput">Your message:</label>
+        <input type="text" id="userInput" name="userInput">
+        <button type="submit">Submit</button>
+        -->
+    </form>
+
+    <div id="chatOutput"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
