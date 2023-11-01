@@ -45,6 +45,47 @@
     padding: 10px;
 }
 
+.ticontainer {
+    display: none; /* Initially hidden */
+    align-items: center;
+}
+
+.tidot {
+    background-color: #90949c;
+}
+
+.tidot {
+    -webkit-animation: mercuryTypingAnimation 1.5s infinite ease-in-out;
+    border-radius: 2px;
+    display: inline-block;
+    height: 4px;
+    margin-right: 2px;
+    width: 4px;
+}
+
+@-webkit-keyframes mercuryTypingAnimation {
+    0% {
+        -webkit-transform: translateY(0px)
+    }
+    28% {
+        -webkit-transform: translateY(-5px)
+    }
+    44% {
+        -webkit-transform: translateY(0px)
+    }
+}
+
+.tidot:nth-child(1) {
+    -webkit-animation-delay: 200ms;
+}
+.tidot:nth-child(2) {
+    -webkit-animation-delay: 300ms;
+}
+.tidot:nth-child(3) {
+    -webkit-animation-delay: 400ms;
+}
+
+
 
     </style>
 <body>
@@ -59,6 +100,13 @@
             placeholder="Type a message here..."
             />
             <button id="send" type="submit">Send</button>
+        </div>
+        <div id="typing-indicator" class="ticontainer">
+            <div class="tiblock">
+                <div class="tidot"></div>
+                <div class="tidot"></div>
+                <div class="tidot"></div>
+            </div>
         </div>
         </div>
         <!--</div>
