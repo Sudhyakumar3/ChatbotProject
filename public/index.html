@@ -3,121 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenAI Chat</title>
+    <title>Gordon Ramsey ChatBot</title>
 </head>
 <style>
-    /* Add CSS styles for chat messages */
+    /* Styles for the page title */
+    .page-title {
+        text-align: center; /* Center the title horizontally */
+        font-size: 36px; /* Adjust the font size as needed */
+        margin-top: 20px; /* Add some top margin for spacing */
+        z-index: 2; /* Ensure the title is above other elements */
+    }
+
+    /* Styles for chat messages */
     .message {
-      margin: 10px;
-      padding: 10px;
-      border-radius: 10px;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
     }
+
+    /* Styles for user messages */
     .user-message {
-      background-color: grey;
-      color: white;
-      text-align: right;
-      font-size: 20px;
+        background-color: grey;
+        color: white;
+        text-align: right;
+        font-size: 20px;
     }
+
+    /* Styles for chatbot messages */
     .chatgpt-message {
-      background-color: #e0e0e0;
-      color: black;
-      text-align: left;
-      font-size: 20px;
+        background-color: #e0e0e0;
+        color: black;
+        text-align: left;
+        font-size: 20px;
     }
 
+    /* Styles for the body background */
     body {
-    margin: 0;
-    padding: 0;
-    background-image: url('restaurantKitchen.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Keeps the background fixed when scrolling */
-    opacity: 0.90; /* Adjust the opacity as needed */
-}
-
-.chat-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 1px solid black;
-    padding: 10px;
-}
-
-.ticontainer {
-    display: none; /* Initially hidden */
-    align-items: center;
-}
-
-.tidot {
-    background-color: #90949c;
-}
-
-.tidot {
-    -webkit-animation: mercuryTypingAnimation 1.5s infinite ease-in-out;
-    border-radius: 2px;
-    display: inline-block;
-    height: 4px;
-    margin-right: 2px;
-    width: 4px;
-}
-
-@-webkit-keyframes mercuryTypingAnimation {
-    0% {
-        -webkit-transform: translateY(0px)
+        margin: 0;
+        padding: 0;
+        background-image: url('restaurantKitchen.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* Keeps the background fixed when scrolling */
+        opacity: 0.90; /* Adjust the opacity as needed */
     }
-    28% {
-        -webkit-transform: translateY(-5px)
+
+    /* Styles for the chat container */
+    .chat-container {
+        padding: 10px;
     }
-    44% {
-        -webkit-transform: translateY(0px)
+
+    /* Styles for user input field */
+    #user-message {
+        height: 50px; /* Adjust the height as needed */
+        width: 89%; /* Set the width to 100% to make it full width */
+        font-size: 20px; /* Adjust the font size as needed */
     }
-}
 
-.tidot:nth-child(1) {
-    -webkit-animation-delay: 200ms;
-}
-.tidot:nth-child(2) {
-    -webkit-animation-delay: 300ms;
-}
-.tidot:nth-child(3) {
-    -webkit-animation-delay: 400ms;
-}
+    /* Styles for the send button */
+    #send {
+        height: 50px; /* Match the height of the user-message input */
+        width: 9%; /* Set the width to 100% to make it full width */
+        font-size: 20px; /* Adjust font size as needed */
+    }
 
+    /* Styles for the typing indicator container */
+    .ticontainer {
+        display: none; /* Initially hidden */
+        align-items: center;
+        background-color: #e0e0e0;
+        color: black;
+        text-align: left;
+        font-size: 20px;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px; /* Add border-radius to make the background rounded */
+    }
 
+    /* Styles for the typing indicator dots */
+    .tidot {
+        background-color: #90949c;
+        -webkit-animation: mercuryTypingAnimation 1.5s infinite ease-in-out;
+        border-radius: 2px;
+        display: inline-block;
+        height: 4px;
+        margin-right: 2px;
+        width: 4px;
+    }
 
-    </style>
+    /* Keyframes for typing animation */
+    @-webkit-keyframes mercuryTypingAnimation {
+        0% {
+            -webkit-transform: translateY(0px);
+        }
+        28% {
+            -webkit-transform: translateY(-5px);
+        }
+        44% {
+            -webkit-transform: translateY(0px);
+        }
+    }
+
+    .tidot:nth-child(1) {
+        -webkit-animation-delay: 200ms;
+    }
+
+    .tidot:nth-child(2) {
+        -webkit-animation-delay: 300ms;
+    }
+
+    .tidot:nth-child(3) {
+        -webkit-animation-delay: 400ms;
+    }
+</style>
 <body>
+    <h1 class="page-title">Talk with Gordon</h1>
+    <h2 class="page-title">Ask him about his favorite recipes, restaurants, ingredients, techniques, tools, and more!</h2>
     <form id="chatForm">
-        <div class = "chat-container" style = "overflow-y:scroll" >
-        <div id = "chat"></div>
-        <div class="input-container">
-            <input 
-            type="text" 
-            id="user-message" 
-            name="userInput" 
-            placeholder="Type a message here..."
-            />
-            <button id="send" type="submit">Send</button>
-        </div>
-        <div id="typing-indicator" class="ticontainer">
-            <div class="tiblock">
-                <div class="tidot"></div>
-                <div class="tidot"></div>
-                <div class="tidot"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="chat-container" style="overflow-y: scroll">
+            <div id="chat"></div>
+            <div id="typing-indicator" class="ticontainer">
+                <div class="tiblock">
+                    <div class="tidot"></div>
+                    <div class="tidot"></div>
+                    <div class="tidot"></div>
+                </div>
+            </div>
+            <div></div>
+            <div></div>
+            <div class="input-container">
+                <input 
+                type="text" 
+                id="user-message" 
+                name="userInput" 
+                placeholder="Type a message here..."
+                />
+                <button id="send" type="submit">Send</button>
             </div>
         </div>
-        </div>
-        <!--</div>
-        <label for="userInput">Your message:</label>
-        <input type="text" id="userInput" name="userInput">
-        <button type="submit">Submit</button>
-        -->
     </form>
-
     <div id="chatOutput"></div>
-
     <script src="script.js"></script>
 </body>
 </html>
