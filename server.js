@@ -4,7 +4,7 @@ const app = express();
 const OpenAI = require('openai');
 
 // Initialize OpenAI with your API key
-const openai = new OpenAI({ apiKey: 'API Key'}); // Replace 'API Key' with your API key
+const openai = new OpenAI({ apiKey: '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'}); // Replace 'API Key' with your API key
 
 // Configure Express middleware
 app.use(express.json());
