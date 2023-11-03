@@ -11,9 +11,6 @@ const backgroundVideo = document.getElementById('background-video');
 // Hide the typing indicator initially
 typingIndicator.style.display = 'none';
 
-// To hide the video
-//document.getElementById('background-video').style.opacity = -1;
-
 // Initialize the conversation with a greeting message
 appendMessage('Gordon Ramsey', 'Hey, mate! What questions do you have for me?', 'chatgpt-message');
 
@@ -33,8 +30,7 @@ document.getElementById('chatForm').addEventListener('submit', async function (e
     // Show the typing indicator when the user sends a message
     typingIndicator.style.display = 'inline-block';
 
-    // To show the video
-    //document.getElementById('background-video').style.opacity = 1;
+    // To hide the image and show the video
     backgroundImage.style.display = 'none';
     backgroundVideo.style.display = 'block';
 
@@ -53,8 +49,7 @@ document.getElementById('chatForm').addEventListener('submit', async function (e
     // Hide the typing indicator when the response is received
     typingIndicator.style.display = 'none';
 
-    // To hide the video
-    //document.getElementById('background-video').style.opacity = -1;
+    // To hide the video and show the image
     backgroundImage.style.display = 'block';
     backgroundVideo.style.display = 'none';
 

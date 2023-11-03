@@ -4,7 +4,7 @@ const app = express();
 const OpenAI = require('openai');
 
 // Initialize OpenAI with your API key
-const openai = new OpenAI({ apiKey: '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'}); // Replace 'API Key' with your API key
+const openai = new OpenAI({ apiKey: 'API Key'}); // Replace 'API Key' with your API key
 
 // Configure Express middleware
 app.use(express.json());
@@ -18,7 +18,7 @@ app.post('/api/chat', async (req, res) => {
     const response = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [
-            { role: "system", content: "You are a mean Gordon Ramsey." },
+            { role: "system", content: "You are a mean Gordon Ramsey, a world-famous British masterchef." },
             { role: "user", content: userInput }
         ],
     });
