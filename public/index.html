@@ -4,147 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gordon Ramsey ChatBot</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<style>
-    /* Styles for the page title */
-    header {
-        background-color: #660708; /* Background color for the title */
-    }
-    .page-title {
-        text-align: center; /* Center the title horizontally */
-        margin-top: 0px; /*Add some top margin for spacing */
-        z-index: 2; /* Ensure the title is above other elements */
-        color: white; /* Text color for the title */
-    }
-
-    h1 {
-    font-family: "Perpetua Titling MT", serif;
-    font-size: 36px; /* Adjust the font size as needed */
-    }
-
-    h2 {
-    font-family: "Perpetua", serif;
-    font-size: 30px; /* Adjust the font size as needed */
-    }
-
-    .message, .user-message, .chatgpt-message {
-    font-family: "Rockwell";
-    }
-
-    /* Styles for chat messages */
-    .message {
-        margin: 10px;
-        padding: 10px;
-        border-radius: 10px;
-    }
-
-    /* Styles for user messages */
-    .user-message {
-        text-align: right;
-        font-size: 20px;
-        background-color: #161A1D;
-        color: white;
-    }
-
-    /* Styles for chatbot messages */
-    .chatgpt-message {
-        background-color: #e0e0e0;
-        color: black;
-        background-color: #e0e0e0;
-        color: black;
-        text-align: left;
-        font-size: 20px;
-    }
-
-    /* Styles for the body background */
-    body {
-        margin: 0;
-        padding: 0;
-        background-image: url('restaurantKitchen.jpeg');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed; /* Keeps the background fixed when scrolling */
-        opacity: 0.90; /* Adjust the opacity as needed */
-    }
-
-    
-
-    /* Styles for user input field */
-    #user-message {
-        height: 50px; /* Adjust the height as needed */
-        width: 89%; /* Set the width to 100% to make it full width */
-        font-size: 20px; /* Adjust the font size as needed */
-    }
-
-    /* Styles for the send button */
-    #send {
-        height: 50px; /* Match the height of the user-message input */
-        width: 9%; /* Set the width to 100% to make it full width */
-        font-size: 20px; /* Adjust font size as needed */
-    }
-
-    /* Styles for the typing indicator container */
-    .ticontainer {
-        display: none; /* Initially hidden */
-        align-items: center;
-        background-color: #e0e0e0;
-        color: black;
-        text-align: left;
-        font-size: 20px;
-        margin: 10px;
-        padding: 10px;
-        border-radius: 10px; /* Add border-radius to make the background rounded */
-    }
-
-    /* Styles for the typing indicator dots */
-    .tidot {
-        background-color: #90949c;
-        -webkit-animation: mercuryTypingAnimation 1.5s infinite ease-in-out;
-        border-radius: 2px;
-        display: inline-block;
-        height: 4px;
-        margin-right: 2px;
-        width: 4px;
-    }
-
-    /* Keyframes for typing animation */
-    @-webkit-keyframes mercuryTypingAnimation {
-        0% {
-            -webkit-transform: translateY(0px);
-        }
-        28% {
-            -webkit-transform: translateY(-5px);
-        }
-        44% {
-            -webkit-transform: translateY(0px);
-        }
-    }
-
-    .tidot:nth-child(1) {
-        -webkit-animation-delay: 200ms;
-    }
-
-    .tidot:nth-child(2) {
-        -webkit-animation-delay: 300ms;
-    }
-
-    .tidot:nth-child(3) {
-        -webkit-animation-delay: 400ms;
-    }
-
-    .grid-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        padding: 10px;
-        height: 100vh;
-      }
-      .chat-container {
-        grid-column: 1/2;
-        padding: 10px;
-      }
-</style>
 <body>
+    <!-- Image element -->
+    <img id="background-image" src="Still Calm.png" alt="Background Image" />
+    <!-- Video element (hidden initially) -->
+    <video id="background-video" autoplay muted loop style="display: none;">
+        <source src="Forward.mp4" type="video/mp4">
+    </video>
     <header>
         <h1 class="page-title">GORDON RAMSEY CHATBOT</h1>
         <h2 class="page-title">Ask him about his favorite recipes, restaurants, ingredients, techniques, tools, and more!</h2>

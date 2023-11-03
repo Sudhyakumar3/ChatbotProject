@@ -5,9 +5,14 @@ const chat = document.getElementById('chat');
 const userMessageInput = document.getElementById('user-message');
 const sendButton = document.getElementById('send');
 const typingIndicator = document.getElementById('typing-indicator');
+const backgroundImage = document.getElementById('background-image');
+const backgroundVideo = document.getElementById('background-video');
 
 // Hide the typing indicator initially
 typingIndicator.style.display = 'none';
+
+// To hide the video
+//document.getElementById('background-video').style.opacity = -1;
 
 // Initialize the conversation with a greeting message
 appendMessage('Gordon Ramsey', 'Hey, mate! What questions do you have for me?', 'chatgpt-message');
@@ -28,6 +33,11 @@ document.getElementById('chatForm').addEventListener('submit', async function (e
     // Show the typing indicator when the user sends a message
     typingIndicator.style.display = 'inline-block';
 
+    // To show the video
+    //document.getElementById('background-video').style.opacity = 1;
+    backgroundImage.style.display = 'none';
+    backgroundVideo.style.display = 'block';
+
     // Send the user's message to the server for a response
     const response = await fetch('/api/chat', {
         method: 'POST',
@@ -39,9 +49,14 @@ document.getElementById('chatForm').addEventListener('submit', async function (e
 
     // Get the response from the server
     const data = await response.json();
-    
+
     // Hide the typing indicator when the response is received
     typingIndicator.style.display = 'none';
+
+    // To hide the video
+    //document.getElementById('background-video').style.opacity = -1;
+    backgroundImage.style.display = 'block';
+    backgroundVideo.style.display = 'none';
 
     // Display the chatbot's response in the chat
     appendMessage('Gordon Ramsey', data.message, 'chatgpt-message');
@@ -54,3 +69,23 @@ function appendMessage(sender, message, messageClass) {
     messageDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
     chat.appendChild(messageDiv);
 }
+
+
+
+
+
+
+// Add a click event listener to the toggle button
+toggleButton.addEventListener('click', () => {
+    // Check the current state (image or video) and toggle it
+    if (backgroundImage.style.display === 'block') {
+        // If the image is visible, switch to the video
+        backgroundImage.style.display = 'none';
+        backgroundVideo.style.display = 'block';
+    } else {
+        // If the video is visible, switch to the image
+        backgroundImage.style.display = 'block';
+        backgroundVideo.style.display = 'none';
+    }
+});
+
